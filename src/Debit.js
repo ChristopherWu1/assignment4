@@ -4,7 +4,7 @@ import AccountBalance from './AccountBalance';
 import './style.css';
 import axios from 'axios';
 
-class Credit extends Component {
+class debit extends Component {
   constructor(props)
   {
     super(props);
@@ -36,10 +36,10 @@ class Credit extends Component {
   async componentDidMount(){
     this.setState({found: true});
   }
-  showCredits = () =>
+  showdebits = () =>
   {
-    let currData = this.props.credits;
-    console.log(this.props.credits);
+    let currData = this.props.debits;
+    console.log(this.props.debits);
     
     let list = currData.map((item,index) => 
     {
@@ -55,16 +55,31 @@ class Credit extends Component {
 
   componentDidUpdate()
   {
-    this.showCredits();
+    this.showdebits();
   }
 
-  makeCredit = () =>
+  makedebit = () =>
   {
     this.setState({clicked : true});//
 
     //update balance
   }
-  
+  /*
+  showNewdebit = () =>
+  {
+    if(this.state.clicked)
+    {
+    let description = this.state.descriptionText;
+    let amount = this.state.amountText;
+    this.setState({descriptionText : "",amountText : "",clicked : false});
+    console.log("burv");
+    return (<tr> 
+      <td> {description} </td>
+      <td> {amount} </td>
+      </tr>);
+    }
+
+  }*/
   
  
   
@@ -73,21 +88,21 @@ class Credit extends Component {
       
         <div>
           
-          <h1>Credit</h1>
+          <h1>Debit</h1>
           <div> fuck yeah!</div>
           <AccountBalance accountBalance={this.props.accountBalance}/>
           <div className="search">
-              <h3>Add Credit:</h3>
+              <h3>Add debit:</h3>
               <input type="text" value={this.state.descriptionText} onChange={this.handleDescriptionChange} placeholder="Enter Description"/>
               <input type="text" value={this.state.amountText} onChange={this.handlePriceChange} placeholder="Enter Price"/>
-              <button onClick={() => this.makeCredit()}>Add</button>
+              <button onClick={() => this.makedebit()}>Add</button>
           </div>
           <Link to="/">Go Back Home</Link>
           { this.state.found 
             ? <div>
-               <h2>List of Credits</h2>
+               <h2>List of Debits</h2>
                <table class="center">
-                  {this.showCredits()} 
+                  {this.showdebits()} 
                   
                 </table>
               </div> 
@@ -98,4 +113,4 @@ class Credit extends Component {
   }
 }
 
-export default Credit;
+export default debit;
