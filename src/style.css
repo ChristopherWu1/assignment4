@@ -4,3 +4,16 @@ div {
   text-align: center;
   font-size: 16pt;
 }
+td {
+  padding-right: 150px;
+}
+span {
+  padding-right: 150px;
+}
+body {
+  background-color: lightskyblue;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
