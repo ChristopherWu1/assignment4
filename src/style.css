@@ -17,3 +17,7 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+.bigimage {
+  width: 20%;
+  height: 20%;
+}
